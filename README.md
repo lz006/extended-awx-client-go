@@ -1,6 +1,6 @@
 # extended-awx-client-go
 
-This is an inofficial fork of Red Hat's "awx-client-go" Git Repos: moolitayer/awx-client-go.
+This is an inofficial fork of Red Hat's "awx-client-go" Git Repo: moolitayer/awx-client-go.
 
 ## Usage
 For general usage please have a look at original Git Repo mentioned above.
