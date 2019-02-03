@@ -16,10 +16,10 @@ limitations under the License.
 
 // This file contains the implementation of the resource that manages a specific project.
 
-package awx
+package eawx
 
 import (
-	"github.com/moolitayer/awx-client-go/awx/internal/data"
+	"github.com/lz006/extended-awx-client-go/awx/internal/data"
 )
 
 type ProjectResource struct {

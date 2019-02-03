@@ -17,12 +17,12 @@ limitations under the License.
 // This file contains the implementation of the resource that manages launching of jobs from job
 // templates.
 
-package awx
+package eawx
 
 import (
 	"encoding/json"
 
-	"github.com/moolitayer/awx-client-go/awx/internal/data"
+	"github.com/lz006/extended-awx-client-go/awx/internal/data"
 )
 
 type JobTemplateLaunchResource struct {

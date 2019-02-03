@@ -41,7 +41,7 @@ import (
 	"strings"
 
 	"github.com/golang/glog"
-	awx "github.com/moolitayer/awx-client-go/awx"
+	awx "github.com/lz006/extended-awx-client-go/awx"
 )
 
 var (

@@ -16,7 +16,7 @@ limitations under the License.
 
 // This file contains the implementation of the properties shared by all lists.
 
-package awx
+package eawx
 
 type ListGetResponse struct {
 	count    int

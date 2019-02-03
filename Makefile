@@ -6,11 +6,11 @@ verify:
 .PHONY: verify
 
 check: verify
-	go test ./awx
+	go test ./eawx
 .PHONY: check
 
 build:
-	go build ./awx
+	go build ./eawx
 .PHONY: build
 
 examples: build

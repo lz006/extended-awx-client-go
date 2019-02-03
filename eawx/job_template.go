@@ -16,7 +16,7 @@ limitations under the License.
 
 // This file contains the implementation of the job template type.
 
-package awx
+package eawx
 
 type JobTemplate struct {
 	id               int

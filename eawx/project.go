@@ -16,7 +16,7 @@ limitations under the License.
 
 // This file contains the implementation of the project type.
 
-package awx
+package eawx
 
 // Project represents an AWX project.
 //

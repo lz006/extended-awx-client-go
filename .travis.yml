@@ -13,6 +13,6 @@ install:
 
 script:
 - make verify
-- go build ./awx
+- go build ./eawx
 - for i in examples/*.go; do go build "${i}"; done
-- go test ./awx
+- go test ./eawx

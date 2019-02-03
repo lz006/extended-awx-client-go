@@ -14,32 +14,27 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// This file contains the the implementation of the capabilities that are common to any kind of
-// request.
+// This file contains the basic implementation shared by all the resources.
 
-package awx
+package eawx
 
 import (
-	"fmt"
 	"net/url"
 )
 
-type Request struct {
-	resource *Resource
-	query    url.Values
+type Resource struct {
+	connection *Connection
+	path       string
 }
 
-func (r *Request) addFilter(name string, value interface{}) {
-	if r.query == nil {
-		r.query = make(url.Values)
-	}
-	r.query.Add(name, fmt.Sprintf("%s", value))
+func (r *Resource) get(query url.Values, output interface{}) error {
+	return r.connection.authenticatedGet(r.path, query, output)
 }
 
-func (r *Request) get(output interface{}) error {
-	return r.resource.get(r.query, output)
+func (r *Resource) post(query url.Values, input interface{}, output interface{}) error {
+	return r.connection.authenticatedPost(r.path, query, input, output)
 }
 
-func (r *Request) post(input interface{}, output interface{}) error {
-	return r.resource.post(r.query, input, output)
+func (r *Resource) String() string {
+	return r.path
 }

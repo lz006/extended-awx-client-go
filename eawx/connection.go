@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package awx
+package eawx
 
 import (
 	"bytes"
@@ -29,7 +29,7 @@ import (
 	"strings"
 
 	"github.com/golang/glog"
-	"github.com/moolitayer/awx-client-go/awx/internal/data"
+	"github.com/lz006/extended-awx-client-go/awx/internal/data"
 )
 
 // Version is the version of the client.

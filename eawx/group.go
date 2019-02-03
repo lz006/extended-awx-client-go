@@ -14,7 +14,7 @@ limitations under the License.
 
 // This file contains the implementation of the host type.
 
-package awx
+package eawx
 
 // Group represents an AWX group.
 //

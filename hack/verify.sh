@@ -17,7 +17,7 @@ fi
 
 # Vetting the entirety of the awx package in one go
 echo "Running go vet: "
-go vet ./awx
+go vet ./eawx
 if [[ "$?" -ne "0" ]]; then
     ret=1
 fi
