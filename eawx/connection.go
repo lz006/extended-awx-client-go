@@ -29,7 +29,7 @@ import (
 	"strings"
 
 	"github.com/golang/glog"
-	"github.com/lz006/extended-awx-client-go/awx/internal/data"
+	"github.com/lz006/extended-awx-client-go/eawx/internal/data"
 )
 
 // Version is the version of the client.

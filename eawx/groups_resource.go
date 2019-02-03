@@ -22,7 +22,7 @@ import (
 	"fmt"
 
 	"github.com/golang/glog"
-	"github.com/lz006/extended-awx-client-go/awx/internal/data"
+	"github.com/lz006/extended-awx-client-go/eawx/internal/data"
 	yaml "gopkg.in/yaml.v2"
 )
 
