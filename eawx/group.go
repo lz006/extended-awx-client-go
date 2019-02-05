@@ -32,7 +32,7 @@ type Variables struct {
 type Endpoint struct {
 	endpoint        string
 	bearerTokenFile string
-	port            string
+	port            int32
 	portName        string
 	protocol        string
 	scheme          string
@@ -83,7 +83,7 @@ func (e *Endpoint) BearerTokenFile() string {
 	return e.bearerTokenFile
 }
 
-func (e *Endpoint) Port() string {
+func (e *Endpoint) Port() int32 {
 	return e.port
 }
 

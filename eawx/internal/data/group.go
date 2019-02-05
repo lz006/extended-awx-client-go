@@ -32,7 +32,7 @@ type Variables struct {
 type Endpoint struct {
 	Endpoint        string `yaml:"endpoint,omitempty"`
 	BearerTokenFile string `yaml:"bearerTokenFile,omitempty"`
-	Port            string `yaml:"port,omitempty"`
+	Port            int32  `yaml:"port,omitempty"`
 	PortName        string `yaml:"portName,omitempty"`
 	Protocol        string `yaml:"protocol,omitempty"`
 	Scheme          string `yaml:"scheme,omitempty"`
