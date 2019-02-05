@@ -25,20 +25,29 @@ type Group struct {
 
 // Used when unmarshalling Group.Vars which contains a yaml string
 type Variables struct {
-	Type            string    `yaml:"mo_type,omitempty"`
-	Endpoint        string    `yaml:"mo_endpoint,omitempty"`
-	BearerTokenFile string    `yaml:"mo_bearerTokenFile,omitempty"`
-	Port            string    `yaml:"mo_port,omitempty"`
-	Scheme          string    `yaml:"mo_scheme,omitempty"`
-	TargetPort      int       `yaml:"mo_targetPort,omitempty"`
-	TLSConf         TLSConfig `yaml:"mo_tlsConfig,omitempty"`
+	Type      string     `yaml:"mo_type,omitempty"`
+	Endpoints []Endpoint `yaml:"mo_endpoints,omitempty"`
+}
+
+type Endpoint struct {
+	Endpoint        string `yaml:"endpoint,omitempty"`
+	BearerTokenFile string `yaml:"bearerTokenFile,omitempty"`
+	Port            string `yaml:"port,omitempty"`
+	Scheme          string `yaml:"scheme,omitempty"`
+	TargetPort      int    `yaml:"targetPort,omitempty"`
+
+	HonorLabels   bool   `yaml:"honorLabels,omitempty"`
+	Interval      string `yaml:"interval,omitempty"`
+	ScrapeTimeout string `yaml:"scrapeTimeout,omitempty"`
+
+	TLSConf TLSConfig `yaml:"tlsConfig,omitempty"`
 }
 
 // Used when unmarshalling Variables.TLSConf which contains a yaml string
 type TLSConfig struct {
-	CAFile             string `yaml:"mo_caFile,omitempty"`
-	Hostname           string `yaml:"mo_hostname,omitempty"`
-	InsecureSkipVerify bool   `yaml:"mo_insecureSkipVerify,omitempty"`
+	CAFile             string `yaml:"caFile,omitempty"`
+	Hostname           string `yaml:"hostname,omitempty"`
+	InsecureSkipVerify bool   `yaml:"insecureSkipVerify,omitempty"`
 }
 
 type GroupGetResponse struct {

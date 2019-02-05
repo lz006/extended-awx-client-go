@@ -25,12 +25,19 @@ type Group struct {
 }
 
 type Variables struct {
-	mType           string
+	mType     string
+	endpoints []*Endpoint
+}
+
+type Endpoint struct {
 	endpoint        string
 	bearerTokenFile string
 	port            string
 	scheme          string
 	targetPort      int
+	honorLabels     bool
+	interval        string
+	scrapeTimeout   string
 	tlsConf         *TLSConfig
 }
 
@@ -62,28 +69,44 @@ func (v *Variables) MType() string {
 	return v.mType
 }
 
-func (v *Variables) Endpoint() string {
-	return v.endpoint
+func (v *Variables) Endpoints() []*Endpoint {
+	return v.endpoints
 }
 
-func (v *Variables) BearerTokenFile() string {
-	return v.bearerTokenFile
+func (e *Endpoint) Endpoint() string {
+	return e.endpoint
 }
 
-func (v *Variables) Port() string {
-	return v.port
+func (e *Endpoint) BearerTokenFile() string {
+	return e.bearerTokenFile
 }
 
-func (v *Variables) Scheme() string {
-	return v.scheme
+func (e *Endpoint) Port() string {
+	return e.port
 }
 
-func (v *Variables) TargetPort() int {
-	return v.targetPort
+func (e *Endpoint) Scheme() string {
+	return e.scheme
 }
 
-func (v *Variables) TLSConfig() *TLSConfig {
-	return v.tlsConf
+func (e *Endpoint) TargetPort() int {
+	return e.targetPort
+}
+
+func (e *Endpoint) HonorLabels() bool {
+	return e.honorLabels
+}
+
+func (e *Endpoint) Interval() string {
+	return e.interval
+}
+
+func (e *Endpoint) ScrapeTimeout() string {
+	return e.scrapeTimeout
+}
+
+func (e *Endpoint) TLSConfig() *TLSConfig {
+	return e.tlsConf
 }
 
 func (t *TLSConfig) CAFile() string {

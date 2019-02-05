@@ -61,24 +61,40 @@ func (r *GroupGetRequest) Send() (response *GroupGetResponse, err error) {
 	}
 
 	if vars != nil {
+
+		var endpoints []*Endpoint
+
+		for _, endpoint := range vars.Endpoints {
+
+			tmpEndpoint := &Endpoint{
+				endpoint:        endpoint.Endpoint,
+				bearerTokenFile: endpoint.BearerTokenFile,
+				port:            endpoint.Port,
+				scheme:          endpoint.Scheme,
+				targetPort:      endpoint.TargetPort,
+				honorLabels:     endpoint.HonorLabels,
+				interval:        endpoint.Interval,
+				scrapeTimeout:   endpoint.ScrapeTimeout,
+			}
+
+			if &endpoint.TLSConf != nil {
+				tmpTLSConfig := &TLSConfig{
+					caFile:             endpoint.TLSConf.CAFile,
+					hostname:           endpoint.TLSConf.Hostname,
+					insecureSkipVerify: endpoint.TLSConf.InsecureSkipVerify,
+				}
+
+				tmpEndpoint.tlsConf = tmpTLSConfig
+			}
+
+			endpoints = append(endpoints, tmpEndpoint)
+		}
+
 		response.result.vars = &Variables{
-			mType:           vars.Type,
-			endpoint:        vars.Endpoint,
-			bearerTokenFile: vars.BearerTokenFile,
-			port:            vars.Port,
-			scheme:          vars.Scheme,
-			targetPort:      vars.TargetPort,
+			mType:     vars.Type,
+			endpoints: endpoints,
 		}
 	}
-
-	if vars != nil && &vars.TLSConf != nil {
-		response.result.vars.tlsConf = &TLSConfig{
-			caFile:             vars.TLSConf.CAFile,
-			hostname:           vars.TLSConf.Hostname,
-			insecureSkipVerify: vars.TLSConf.InsecureSkipVerify,
-		}
-	}
-
 	return
 }
 

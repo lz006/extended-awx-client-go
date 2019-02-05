@@ -78,22 +78,38 @@ func (r *GroupsGetRequest) Send() (response *GroupsGetResponse, err error) {
 		}
 
 		if vars != nil {
-			response.results[i].vars = &Variables{
-				mType:           vars.Type,
-				endpoint:        vars.Endpoint,
-				bearerTokenFile: vars.BearerTokenFile,
-				port:            vars.Port,
-				scheme:          vars.Scheme,
-				targetPort:      vars.TargetPort,
+
+			var endpoints []*Endpoint
+
+			for _, endpoint := range vars.Endpoints {
+
+				tmpEndpoint := &Endpoint{
+					endpoint:        endpoint.Endpoint,
+					bearerTokenFile: endpoint.BearerTokenFile,
+					port:            endpoint.Port,
+					scheme:          endpoint.Scheme,
+					targetPort:      endpoint.TargetPort,
+					honorLabels:     endpoint.HonorLabels,
+					interval:        endpoint.Interval,
+					scrapeTimeout:   endpoint.ScrapeTimeout,
+				}
+
+				if &endpoint.TLSConf != nil {
+					tmpTLSConfig := &TLSConfig{
+						caFile:             endpoint.TLSConf.CAFile,
+						hostname:           endpoint.TLSConf.Hostname,
+						insecureSkipVerify: endpoint.TLSConf.InsecureSkipVerify,
+					}
+
+					tmpEndpoint.tlsConf = tmpTLSConfig
+				}
+
+				endpoints = append(endpoints, tmpEndpoint)
 			}
 
-		}
-
-		if vars != nil && &vars.TLSConf != nil {
-			response.results[i].vars.tlsConf = &TLSConfig{
-				caFile:             vars.TLSConf.CAFile,
-				hostname:           vars.TLSConf.Hostname,
-				insecureSkipVerify: vars.TLSConf.InsecureSkipVerify,
+			response.results[i].vars = &Variables{
+				mType:     vars.Type,
+				endpoints: endpoints,
 			}
 		}
 	}
