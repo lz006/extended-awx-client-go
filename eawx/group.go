@@ -33,6 +33,8 @@ type Endpoint struct {
 	endpoint        string
 	bearerTokenFile string
 	port            string
+	portName        string
+	protocol        string
 	scheme          string
 	targetPort      int
 	honorLabels     bool
@@ -83,6 +85,14 @@ func (e *Endpoint) BearerTokenFile() string {
 
 func (e *Endpoint) Port() string {
 	return e.port
+}
+
+func (e *Endpoint) PortName() string {
+	return e.portName
+}
+
+func (e *Endpoint) Protocol() string {
+	return e.protocol
 }
 
 func (e *Endpoint) Scheme() string {

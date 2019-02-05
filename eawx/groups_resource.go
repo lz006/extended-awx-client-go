@@ -87,6 +87,8 @@ func (r *GroupsGetRequest) Send() (response *GroupsGetResponse, err error) {
 					endpoint:        endpoint.Endpoint,
 					bearerTokenFile: endpoint.BearerTokenFile,
 					port:            endpoint.Port,
+					portName:        endpoint.PortName,
+					protocol:        endpoint.Protocol,
 					scheme:          endpoint.Scheme,
 					targetPort:      endpoint.TargetPort,
 					honorLabels:     endpoint.HonorLabels,

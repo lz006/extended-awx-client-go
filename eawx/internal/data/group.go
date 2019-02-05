@@ -33,6 +33,8 @@ type Endpoint struct {
 	Endpoint        string `yaml:"endpoint,omitempty"`
 	BearerTokenFile string `yaml:"bearerTokenFile,omitempty"`
 	Port            string `yaml:"port,omitempty"`
+	PortName        string `yaml:"portName,omitempty"`
+	Protocol        string `yaml:"protocol,omitempty"`
 	Scheme          string `yaml:"scheme,omitempty"`
 	TargetPort      int    `yaml:"targetPort,omitempty"`
 
