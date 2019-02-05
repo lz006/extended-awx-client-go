@@ -69,7 +69,7 @@ func (r *HostGetRequest) Send() (response *HostGetResponse, err error) {
 	}
 
 	if vars != nil {
-		response.result.ipv4 = vars.IPV4
+		response.result.ip = vars.IP
 	}
 
 	return

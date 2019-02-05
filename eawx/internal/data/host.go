@@ -33,7 +33,7 @@ type Groups struct {
 
 // Used when unmarshalling Host.HostVars which contains a yaml string
 type HostVariables struct {
-	IPV4 string `yaml:"ansible_host,omitempty"`
+	IP string `yaml:"ansible_host,omitempty"`
 }
 
 type HostGetResponse struct {

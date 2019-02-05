@@ -23,7 +23,7 @@ type Host struct {
 	id     int
 	name   string
 	groups []*string
-	ipv4   string
+	ip     string
 }
 
 // Id returns the unique identifier of the host.
@@ -46,6 +46,6 @@ func (p *Host) GroupsArray() []*string {
 
 // IPV4 returns the ipv4 address of the host
 //
-func (p *Host) IPV4() string {
-	return p.ipv4
+func (p *Host) IP() string {
+	return p.ip
 }

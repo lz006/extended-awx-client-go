@@ -85,7 +85,7 @@ func (r *HostsGetRequest) Send() (response *HostsGetResponse, err error) {
 			glog.Warningf("Error parsing: %v", err)
 		}
 		if vars != nil {
-			response.results[i].ipv4 = vars.IPV4
+			response.results[i].ip = vars.IP
 		}
 	}
 	return
