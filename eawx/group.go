@@ -75,6 +75,10 @@ func (v *Variables) Endpoints() []*Endpoint {
 	return v.endpoints
 }
 
+func (v *Variables) SetEndpoints(endpoints []*Endpoint) {
+	v.endpoints = endpoints
+}
+
 func (e *Endpoint) Endpoint() string {
 	return e.endpoint
 }
